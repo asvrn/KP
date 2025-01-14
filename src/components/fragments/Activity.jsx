@@ -11,6 +11,14 @@ const ActivityModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Data:', formData);
@@ -46,13 +54,12 @@ const ActivityModal = ({ isOpen, onClose }) => {
               <label className="block text-gray-700 font-medium mb-2">Tanggal</label>
               <div className="relative">
                 <input
-                  type="text"
-                  placeholder="mm/dd/yyyy"
-                  className="w-full border rounded-lg p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  value={formData.tanggal}
-                  onChange={(e) => setFormData({...formData, tanggal: e.target.value})}
-                />
-                <Calendar className="absolute right-3 top-3 text-gray-400" size={20} />
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border rounded focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  required />
               </div>
             </div>
 

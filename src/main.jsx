@@ -8,6 +8,7 @@ import Absensi from "./components/Pages/users/Absensi";
 import Layout from "./components/fragments/Layout";
 import Logbook from "./components/Pages/users/Logbook";
 import Laporan from "./components/Pages/users/Laporan";
+import Profil from "./components/Pages/users/Profil";
 
 const Router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
       {
         path: "/laporan",
         element: <Laporan />
+      },
+      {
+        path: "/profil",
+        element: <Profil />
       }
     ]
   }

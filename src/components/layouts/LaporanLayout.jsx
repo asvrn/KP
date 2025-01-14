@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowUpDown, Upload } from 'lucide-react';
+import UploadLaporan from '../fragments/UploadLaporan';
 
 const Laporan = () => {
+  const [isUploadOpen, setIsUploadOpen] = useState(false);
+  
   const submissionHistory = [
     {
       versi: 'v1.2',
@@ -23,7 +26,10 @@ const Laporan = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">Laporan Akhir Magang</h1>
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg inline-flex items-center">
+        <button 
+          onClick={() => setIsUploadOpen(true)}
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg inline-flex items-center hover:bg-blue-700"
+        >
           <Upload className="mr-2 h-5 w-5" /> Upload Laporan
         </button>
       </div>
@@ -56,7 +62,7 @@ const Laporan = () => {
                 <th className="text-left py-4 px-4">Versi</th>
                 <th className="text-left py-4 px-4">Tanggal</th>
                 <th className="text-left py-4 px-4">Status</th>
-                <th className="text-left py-4 px-4">FeedBack</th>
+                <th className="text-left py-4 px-4">Feedback</th>
                 <th className="text-left py-4 px-4">File</th>
               </tr>
             </thead>
@@ -87,6 +93,11 @@ const Laporan = () => {
           </table>
         </div>
       </div>
+
+      <UploadLaporan 
+        isOpen={isUploadOpen}
+        onClose={() => setIsUploadOpen(false)}
+      />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-// src/pages/users/Profil.jsx
 import React from 'react';
 import ProfileLayout from '../../layouts/ProfileLayout';
 
